@@ -5,19 +5,19 @@ from django.views.generic import ListView, DetailView, TemplateView, FormView
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
 from django.views.generic.dates import DayArchiveView,TodayArchiveView
 
-from blog.models import Post
+from board.models import Post
 
 # 댓글
 from django.conf import settings
 
 # search
-from blog.forms import PostSearchForm
+from board.forms import PostSearchForm
 from django.db.models import Q
 from django.shortcuts import render
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/post_all.html'
+    template_name = 'board/post_all.html'
     context_object_name = 'posts'
     paginate_by = 2
 
@@ -72,7 +72,7 @@ class TaggedObjectLV(ListView):
 #Search Form View
 class SearchFormView(FormView):
     form_class = PostSearchForm
-    template_name = 'blog/post_search.html'
+    template_name = 'board/post_search.html'
 
     def form_valid(self, form):
         searchWord = form.cleaned_data['search_word']
