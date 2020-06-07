@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'board.apps.BoardConfig',
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
+    'widget_tweaks',
     'photo.apps.PhotoConfig',
 ]
 

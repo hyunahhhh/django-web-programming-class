@@ -7,6 +7,22 @@
 <!-- 페이지 타이틀을 home.html이라고 정의-->
 {% block title %}home.html{% endblock %}
 
+{% block header%}
+  <header class="masthead" style="background-image: url('{%static 'img/copenhagen.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>놀면뭐하니?</h1>
+            <span class="subheading">매주 토요일 저녁 7시!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{%endblock%}
+
 <!--content 영역-->
 {% block content %}
 

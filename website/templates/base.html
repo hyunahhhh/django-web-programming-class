@@ -28,56 +28,63 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <!--[ZN] Home -->
+      <!--홈 메뉴 -->
       <a class="navbar-brand" href="{% url 'home'%}">Home</a>
+      <!--작은 화면용 메뉴 버튼 -->
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <!--메뉴 시작 -->
       <div class="collapse navbar-collapse" id="navbarResponsive">
+        <!-- 메뉴 리스트 -->
         <ul class="navbar-nav ml-auto  nav-pills">
-          <!--[ZN] BOOKMARK 메뉴 -->
+          <!-- 1) BOOKMARK 메뉴 -->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'bookmark:index'%}">Bookmark</a>
           </li>
-          <!--[ZN] Blog 메뉴 -->
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="{% url 'board:index'%}">Blog</a>-->
-<!--          </li>-->
+          <!-- 2) BOARD 드롭다운 메뉴 -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Blog</a>
+            <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">Board</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="{% url 'board:index' %}">Board</a>
+              <a class="dropdown-item" href="{% url 'board:index' %}">Posts</a>
               <a class="dropdown-item" href="{% url 'board:search' %}">Search</a>
             </div>
           </li>
-
-          <!--[ZN] Photo 메뉴 -->
+          <!-- 3) PHOTO 메뉴 -->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'board:index'%}">Photo</a>
           </li>
-          <!--[ZN] Admin 메뉴 -->
+          <!-- 4) Admin 메뉴 -->
           <li class="nav-item">
             <a class="nav-link" href="{% url 'admin:index'%}">Admin</a>
           </li>
         </ul>
+
+        <!-- 로그인 메뉴 -->
+        <ul class="navbar-nav ml-5 mr-5">
+            <li class="nav-item dropdown">
+                {% if user.is_active %}
+                <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+            	    <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %}&ensp;</a>
+                <div class="dropdown-menu">
+            	    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+            	    <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+                </div>
+                {% else %}
+                <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+            	    <i class="fas fa-user"></i>&ensp;Anonymous&ensp;</a>
+                <div class="dropdown-menu">
+            	    <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+            	    <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                </div>
+                {% endif %}
+            </li>
+        </ul>
       </div>
     </div>
   </nav>
-
-  <!--[ZN] Page Header도 블록으로 설정해서, 각 App에서 설정 가능 -->
-  {% block header%}
-  <!--[ZN] 이미지 로드 부분은 static으로 변경 -->
-  <header class="masthead" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>반갑습니다</h1>
-            <span class="subheading">이곳은 저의 홈페이지입니다</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-  {%endblock%}
+  {% block header %} {%endblock%}
   {% block content %} {%endblock%}
 
   <!-- Footer -->
@@ -117,15 +124,10 @@
     </div>
   </footer>
 
-<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <!-- Bootstrap core JavaScript -->
   <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<!--  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
-  <script src="https://kit.fontawesome.com/c998a172fe.js"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
