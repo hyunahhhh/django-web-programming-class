@@ -1,0 +1,28 @@
+<!--extends 태그는 첫 줄에 작성-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} bookmark_detail.html {% endblock %}
+
+{% block header%}
+  <header class="masthead" style="background-image: url('{%static 'img/about-bg.jpg' %}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>북마크 페이지</h1>
+            <span class="subheading">제가 자주가는 홈페이지 주소입니다</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{%endblock%}
+
+{% block content %}
+    <h2> 선택한 사이트: {{object.title}} </h2>
+     <ul>
+         <li> <a href="{{object.url}}"> {{object.url}} </a> </li>
+     </ul>
+{% endblock %}
