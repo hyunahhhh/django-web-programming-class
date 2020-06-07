@@ -64,10 +64,10 @@
         {% load taggit_templatetags2_tags %}
         {% get_tags_for_object object as "tags" %}
         {% for tag in tags %}
-            <a href="{% url 'blog:tagged_object_list' tag.name %}">{{tag.name}}</a>
+            <a href="{% url 'board:tagged_object_list' tag.name %}">{{tag.name}}</a>
         {% endfor %}
 	&emsp;
-        <a href="{% url 'blog:tag_cloud' %}"><span class="btn btn-info btn-sm">TagCloud</span></a>
+        <a href="{% url 'board:tag_cloud' %}"><span class="btn btn-info btn-sm">TagCloud</span></a>
     </div>
 
     <!--댓글 관련 추가-->

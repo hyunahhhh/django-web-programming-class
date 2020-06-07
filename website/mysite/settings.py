@@ -37,12 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bookmark.apps.BookmarkConfig',
-    'board.apps.BoardConfig',
+
+    # 게시판 태그 기능
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
+    
+    # 로그인/로그아웃 폼 꾸미기
     'widget_tweaks',
-    'photo.apps.PhotoConfig',
+
+    # 신규 구현 앱
+    'bookmark.apps.BookmarkConfig',
+    'board.apps.BoardConfig',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +142,5 @@ TAGGIT_LIMIT = 50
 # 댓글
 DISQUS_SHORTNAME = 'django-web-programming-2'
 DISQUS_MY_DOMAIN = 'http://127.0.0.1:8000/'
+
+LOGIN_REDIRECT_URL = '/'

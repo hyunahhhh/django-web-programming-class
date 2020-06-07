@@ -21,8 +21,21 @@
 {%endblock%}
 
 {% block content %}
-    <h2> 선택한 사이트: {{object.title}} </h2>
-     <ul>
-         <li> <a href="{{object.url}}"> {{object.url}} </a> </li>
-     </ul>
+    <a href="{% url 'bookmark:update' bookmark.id %}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">수정</a>
+    <a href="{% url 'bookmark:delete' bookmark.id %}" class="btn btn-secondary btn-sm" role="button" aria-pressed="true">삭제</a>
+    <br>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+            <h2 class="post-title">
+              {{ object.title }}
+            </h2>
+            <h3 class="post-meta">
+                <a href="{{ object.url }}">{{ object.url }}</a>
+            </h3>
+        </div>
+       </div>
+   </div>
+<br>
+
 {% endblock %}

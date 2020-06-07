@@ -23,6 +23,8 @@
 {% block content %}
     <h2> My Bookmark List</h2>
     <ul>
+        <a href="{% url 'bookmark:add'%}" class="btn btn-primary btn-sm float-right" role="button" aria-pressed="true">새로 만들기</a>
+        <br><br>
         {% for bookmark in object_list %}
         <li> <a href="{% url 'bookmark:detail' bookmark.id %}">{{ bookmark }}</a> </li>
         {% endfor %}

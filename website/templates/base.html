@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <!--[ZN]title을 block으로 지정해서, 각 템블릿에서 지정가능하도록 설정-->
+  <!-- title을 block으로 지정해서, 각 템블릿에서 지정가능하도록 설정-->
   <title>{% block title%}base.html{%endblock%} </title>
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -53,7 +53,7 @@
           </li>
           <!-- 3) PHOTO 메뉴 -->
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'board:index'%}">Photo</a>
+            <a class="nav-link" href="#">Photo</a>
           </li>
           <!-- 4) Admin 메뉴 -->
           <li class="nav-item">
@@ -64,19 +64,23 @@
         <!-- 로그인 메뉴 -->
         <ul class="navbar-nav ml-5 mr-5">
             <li class="nav-item dropdown">
+                <!-- [조건1] 로그인한 상태 -->
                 {% if user.is_active %}
                 <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
+                    <!-- 로그인한 사용자 이름 디스플레이 -->
             	    <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %}&ensp;</a>
+                <!-- 드롭다운 메뉴 -->
                 <div class="dropdown-menu">
-            	    <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-            	    <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+            	    <a class="dropdown-item" href="{% url 'logout' %}">로그아웃</a>
+            	    <a class="dropdown-item" href="{% url 'password_change' %}">비밀번호 변경</a>
                 </div>
+                <!-- [조건2] 로그아웃한 상태 -->
                 {% else %}
                 <a class="nav-link dropdown-toggle text-white" href="#" data-toggle="dropdown">
-            	    <i class="fas fa-user"></i>&ensp;Anonymous&ensp;</a>
+            	    <i class="fas fa-user"></i>&ensp;로그인 해주세요&ensp;</a>
                 <div class="dropdown-menu">
-            	    <a class="dropdown-item" href="{% url 'login' %}">Login</a>
-            	    <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+            	    <a class="dropdown-item" href="{% url 'login' %}">로그인</a>
+            	    <a class="dropdown-item" href="{% url 'register' %}">회원가입</a>
                 </div>
                 {% endif %}
             </li>
@@ -84,8 +88,13 @@
       </div>
     </div>
   </nav>
-  {% block header %} {%endblock%}
+
+
+ {% block header %} {%endblock%}
+
+<div class="container">
   {% block content %} {%endblock%}
+</div>
 
   <!-- Footer -->
   <footer>
