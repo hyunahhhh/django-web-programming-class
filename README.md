@@ -103,6 +103,7 @@
 
 - 전체 화면에서 공통으로 사용하는 부분은 base.html에 구현하고, block을 지정한 부분은 상속받은 html 페이지에서 구현
 
+- home.html
 - ```
   {% extends 'base.html' %}
   
@@ -114,12 +115,29 @@
   
   {% block content %}{% endblock %}
   
-  {% block footer %}{% endblock %}
-  
   {% block extra-script %}{% endblock %}
   ```
 
-
+- 리소스 파일: ch99/static/ 으로 복사
+- root 템플릿: ch99/templates/ 아래 생성
+- base.html
+    1) 부트스트랩의 index.html 코드 복사
+    2) 리소스 관련 코드 수정
+    ```
+     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+     <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
+    ```
+    3) 블록영역 지정 
+     ```
+    {% load static %}
+    {% block title %}home.html {% endblock %}
+  
+    {% block header %}{% endblock %}
+  
+    {% block content %}{% endblock %}
+  
+    {% block extra-script %}{% endblock %}
+     ```
 
 #### 7. 인증기능(로그인/로그아웃)
 
