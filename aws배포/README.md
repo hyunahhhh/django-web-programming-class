@@ -1,6 +1,6 @@
 ## [과정1] settings.py 수정
 
-1. pip freeze > requirement.txt
+1. pip freeze > requirements.txt
 2. git에 업로드
 3. settings.py 수정
 ALLOWED_HOSTS = ['*']
