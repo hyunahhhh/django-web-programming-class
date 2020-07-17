@@ -23,18 +23,37 @@ ALLOWED_HOSTS = ['*']
   HTTP, HTTPS, 사용자지정 TCP(8000) 포트, 위치무관
 6. Launch 인스턴스
 7. 새로운 키페어 선택/생성
-   키페어 이름: django  > 키페어 다운로드(djnago.pem)
+   키페어 이름: django  > 키페어 다운로드(djnago.pem)  
      ![ex_screenshot](./image/1_키페어생성.png)
-   안전한 장소로 복사(pem폴더)
+     
+     
+     
+   안전한 장소로 복사(pem폴더)  
      ![ex_screenshot](./image/2_키페어선택.png)
 
-8. 인스턴스보기
- ![ex_screenshot](./image/3_설정완료후 화면.png)
+
+8. 인스턴스보기  
+     ![ex_screenshot](./image/3_설정완료후 화면.png)
  
  
 9. 탄력적 IP > 탄력적 IP 주소 할당 > Amazon의 IPv4 주소 풀 할당
-   생성 완료: 13.124.194.57
+   생성 완료: 3.129.33.206
+   ![ex_screenshot](./image/4_탄력적IP.png)
+   
+   
+   ![ex_screenshot](./image/5_탄력적IP주소할당.png)
+   
+   
+   ![ex_screenshot](./image/6_할당.png)
+   
+   
+   ![ex_screenshot](./image/7_탄력적주소.png)
+   
 10. 탄력적 IP 주소에 인스턴스 연결
+
+
+    ![ex_screenshot](./image/8_탄력적주소_연결.png)
+
 ----------------------------------------------------------
 ### 2) RDS 설정
 
