@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ['*']
 
 1. putty 설치(puttygen도 같이 설치됨)
 2. puttygen 실행 > Conversions > pem 파일 선택 > ppk 형태로 저장
-3. ubuntu@13.124.194.57 설정
+3. ubuntu@13.124.194.57 설정(자신의 IP로 설정!!)
    - Connection > SSH > Auth > Private key file for authentication 설정
    - 접속
 4. ls, pwd 확인해보기
