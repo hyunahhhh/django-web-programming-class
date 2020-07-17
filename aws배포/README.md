@@ -24,16 +24,20 @@ ALLOWED_HOSTS = ['*']
 6. Launch 인스턴스
 7. 새로운 키페어 선택/생성
    키페어 이름: django  > 키페어 다운로드(djnago.pem)  
+   
+   
      ![ex_screenshot](./image/1_키페어생성.png)
      
      
-     
+     ----
    안전한 장소로 복사(pem폴더)  
+   
+   
      ![ex_screenshot](./image/2_키페어선택.png)
 
-
+     ----
 8. 인스턴스보기  
-     ![ex_screenshot](./image/3_설정완료후 화면.png)
+     ![ex_screenshot](./image/3_설정완료화면.png)
  
  
 9. 탄력적 IP > 탄력적 IP 주소 할당 > Amazon의 IPv4 주소 풀 할당
